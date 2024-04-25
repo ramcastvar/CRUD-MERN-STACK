@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    networks:
+      - backend-network
+
+  backend:
+    build:
+      context: ./CRUD-MERN-BACKEND
+    ports:
+      - "8080:8080"
+    volumes:
+      - logs:/app/logs
+      - ./CRUD-MERN-BACKEND:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - backend-network
+      - frontend-network
+
+  frontend:
+    build:
+      context: ./crud-mern-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./crud-mern-frontend:/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - frontend-network
+
+networks:
+  frontend-network:
+    driver: bridge
+  backend-network:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
