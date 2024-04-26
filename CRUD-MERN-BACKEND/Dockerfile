@@ -1,6 +1,6 @@
 # Stage Build
 
-FROM node:20.12.2-alpine AS build-stage
+FROM node:alpine AS build-stage
 WORKDIR /app
 COPY package*.json .
 RUN npm install
@@ -9,7 +9,7 @@ RUN npm run build
 
 # Stage Production
 
-FROM node:20.12.2-alpine AS production-stage
+FROM node:alpine AS production-stage
 WORKDIR /app
 COPY package*.json .
 RUN npm install --production
