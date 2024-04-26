@@ -12,6 +12,7 @@ on:
       - master
     paths:
       - 'crud-mern-stack/**'
+  workflow_dispatch:
 
 jobs:
 
