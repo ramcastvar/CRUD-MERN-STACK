@@ -9,9 +9,7 @@ services:
       - backend-network
 
   backend:
-    build:
-      context: ./CRUD-MERN-BACKEND
-      dockerfile: Dockerfile.dev
+    image: "ramcastvar/crud-mern-backend:v1.0"
     ports:
       - "8080:8080"
     volumes:
@@ -25,7 +23,7 @@ services:
       - frontend-network
 
   frontend:
-    image: "ramcastvar/crud-mern-frontend:1.0.0"
+    image: "ramcastvar/crud-mern-frontend:v1.0"
     ports:
       - "3000:3000"
     volumes:
