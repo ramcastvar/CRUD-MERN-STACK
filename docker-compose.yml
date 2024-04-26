@@ -11,6 +11,7 @@ services:
   backend:
     build:
       context: ./CRUD-MERN-BACKEND
+      dockerfile: Dockerfile.env
     ports:
       - "8080:8080"
     volumes:
@@ -26,6 +27,7 @@ services:
   frontend:
     build:
       context: ./crud-mern-frontend
+      dockerfile: Dockerfile.env
     ports:
       - "3000:3000"
     volumes:
