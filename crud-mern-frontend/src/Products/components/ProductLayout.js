@@ -35,7 +35,7 @@ const ProductLayout = () => {
 
     return (
         <Container>
-            <Header title="Product Aplication v2" />
+            <Header title="Product Aplication v1.1" />
             <AddButton onClick={() => setIsModalOpen(true)} />
             
             {
