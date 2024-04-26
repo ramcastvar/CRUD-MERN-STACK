@@ -6,12 +6,12 @@ on:
     branches:
       - master
     paths:
-      - 'crud-mern-stack/**'
+      - 'crud-mern-frontend/**'
   push:
     branches:
       - master
     paths:
-      - 'crud-mern-stack/**'
+      - 'crud-mern-frontend/**'
   workflow_dispatch:
 
 jobs:
