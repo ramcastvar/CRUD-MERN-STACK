@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     # Define the steps for this job
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.1.4
       name: 'Checkout repository'
 
     - name: 'Install Dependencies'
@@ -47,7 +47,7 @@ jobs:
         working-directory: ./crud-mern-frontend
     runs-on: ubuntu-latest
     steps:    
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.1.4
       name: 'Checkout repository'
     
     - name: 'Install Dependencies'
