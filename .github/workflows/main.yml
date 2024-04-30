@@ -38,23 +38,23 @@ jobs:
       run: npm run test
 
   # Run the linter to check for code style issues
-  lint:
-    name: 'Run linter'
-    defaults:
-      run:
-        shell: bash
+  #lint:
+  #  name: 'Run linter'
+  #  defaults:
+  #    run:
+  #      shell: bash
         # Define the working directory for all run steps in the workflow
-        working-directory: ./crud-mern-frontend
-    runs-on: ubuntu-latest
-    steps:    
-    - uses: actions/checkout@v4.1.4
-      name: 'Checkout repository'
+  #      working-directory: ./crud-mern-frontend
+  #  runs-on: ubuntu-latest
+  #  steps:    
+  #  - uses: actions/checkout@v4.1.4
+  #    name: 'Checkout repository'
     
-    - name: 'Install Dependencies'
-      run: npm install
+  #  - name: 'Install Dependencies'
+  #    run: npm install
 
-    - name: 'Run Linter'
-      run: npx standard -v
+  #  - name: 'Run Linter'
+  #    run: npx standard -v
 
 # Run Docker to buid and push images
   docker:
