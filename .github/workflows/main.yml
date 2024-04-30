@@ -55,3 +55,24 @@ jobs:
 
     - name: 'Run Linter'
       run: npx standard -v
+
+# Run Docker to buid and push images
+  docker:
+    name: 'Run Docker'
+    defaults:
+      run:
+        shell: bash
+        # Define the working directory for all run steps in the workflow
+        working-directory: ./crud-mern-frontend
+    runs-on: ubuntu-latest
+    steps:    
+    - uses: actions/checkout@v4.1.4
+      name: 'Checkout repository'
+
+    - name: 'Run Docker'
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: ramcastvar/crud-mern-frontend
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
