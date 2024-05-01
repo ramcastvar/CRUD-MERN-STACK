@@ -56,35 +56,36 @@ jobs:
   #  - name: 'Run Linter'
   #    run: npx standard -v
 
-# Run the builder to compile the app
-build:
-  name: 'Run buils'
-  defaults:
-    run:
-      shell: bash
-      # Define the working directory for all run steps in the workflow
-      working-directory: ./crud-mern-frontend
-      # Specify the OS we want the workflow to run on
-      runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v4.1.4
-      name: 'Checkout repository'
-      
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+  # Run the builder to compile the app
+  build:
+    name: 'Run build'
+    defaults:
+      run:
+        shell: bash
+        # Define the working directory for all run steps in the workflow
+        working-directory: ./crud-mern-frontend
+    # Specify the OS we want the workflow to run on
+    runs-on: ubuntu-latest
+  
+      strategy:
+        matrix:
+          node-version: [16.x, 18.x, 20.x]
+          # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+          
+      # Define the steps for this job
+      steps:
+      - uses: actions/checkout@v4.1.4
+        name: 'Checkout repository'
         
-    - run: npm ci
-    
-    - run: npm run build --if-present
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - run: npm ci
+      
+      - run: npm run build --if-present
 
 # Run Docker to buid and push images
   docker:
