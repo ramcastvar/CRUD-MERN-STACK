@@ -13,6 +13,6 @@ FROM node:alpine AS production-stage
 WORKDIR /app
 COPY package*.json .
 RUN npm install --production
-COPY ./app/build .
+COPY /. .
 EXPOSE 3000
 CMD ["npm", "start"]
