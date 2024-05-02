@@ -107,6 +107,7 @@ jobs:
       with:
         image: ramcastvar/crud-mern-frontend
         registry: docker.io
-        dockerfile: ./crud-mern-frontend/Dockerfile
+        directory: crud-mern-frontend
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
