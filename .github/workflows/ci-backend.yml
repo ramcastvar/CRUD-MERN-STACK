@@ -1,4 +1,4 @@
-name: Continuous Integration Workflow for frontend application
+name: Continuous Integration Workflow for backend application
 
 # This workflow is triggered whenever a new PR is created on the main branch
 on:
